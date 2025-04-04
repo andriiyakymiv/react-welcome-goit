@@ -1,12 +1,15 @@
-const Mailbox = ({ name, unreadMessages }) => {
+const Mailbox = ({ username, messages }) => {
   return (
     <div>
-      <p>Hello {name}</p>
-      <p>
-        {unreadMessages.length > 0
-          ? `You have ${unreadMessages.length} unread messages`
-          : "No unread messages"}
-      </p>
+      <p>Hello {username}</p>
+      {messages.length > 0 ? (
+        <div>
+          <p>You have {messages.length} unread messages</p>
+          <MessageList messages={messages} />
+        </div>
+      ) : (
+        <p>No unread messages</p>
+      )}
     </div>
   );
 };
